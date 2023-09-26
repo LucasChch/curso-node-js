@@ -13,7 +13,8 @@ app.use(cors({
       'http://localhost:8080',
       'http://localhost:1234',
       'https://movies.com',
-      'https://midu.dev'
+      'https://midu.dev',
+      'http://127.0.0.1:5500'
     ]
 
     if (ACCEPTED_ORIGINS.includes(origin)) {
@@ -38,11 +39,16 @@ app.disable('x-powered-by') // deshabilitar el header X-Powered-By: Express
 // Todos los recursos que sean MOVIES se identifica con /movies
 app.get('/movies', (req, res) => {
   const { genre } = req.query
+  const {testLC} = req.query
   if (genre) {
     const filteredMovies = movies.filter(
       movie => movie.genre.some(g => g.toLowerCase() === genre.toLowerCase())
     )
     return res.json(filteredMovies)
+  }
+  if(testLC){
+    return res.json({"message":
+      'prueba lucas'})
   }
   res.json(movies)
 })
