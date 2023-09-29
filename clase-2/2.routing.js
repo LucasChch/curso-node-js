@@ -26,6 +26,7 @@ const processRequest = (req, res) => {
 
           // escuchar el evento data
           req.on('data', chunk => {
+            console.log(chunk.toString())
             body += chunk.toString()
           })
 

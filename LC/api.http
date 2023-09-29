@@ -1,0 +1,5 @@
+### GET ALL POKEMONS
+GET http://localhost:8080/pokemon
+
+### GET ALL POKEMONS
+GET http://localhost:8080/pokemon/?name=squirtle
