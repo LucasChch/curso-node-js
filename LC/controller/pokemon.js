@@ -2,15 +2,16 @@ import {PokemonModel} from '../model/pokemon.js'
 
 export class PokemonController{
     static async getAll (req,res) {
-        console.log('arriba')
-        const pokemons = await PokemonModel.getAll()
+        const {name} = req.query
+        const pokemons = await PokemonModel.getAll({name})
         res.json(pokemons)
     }
 
     static async getByName (req,res){
-        console.log('ENTREEEEE')
+        
         const {name} = req.params
-        const pokemon = await PokemonController.getByName({name})
+        console.log(req.params)
+        const pokemon = await PokemonModel.getByName({name})
         res.json(pokemon)
     }
 }
